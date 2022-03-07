@@ -20,9 +20,19 @@ namespace KirjastoA
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Kirjasto valittuKirjasto;
         public MainWindow()
         {
+            valittuKirjasto = new Kirjasto(
+                "Palosaaren kirjasto",
+                "Pikitehtaankatu 19, 65200 Vaasa"
+                );
+
+            valittuKirjasto.LuoMockDataa(30);
+
             InitializeComponent();
         }
+
+      
     }
 }

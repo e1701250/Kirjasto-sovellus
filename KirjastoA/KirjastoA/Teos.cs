@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KirjastoB
+namespace KirjastoA
 {
-    class KirjastoTieto
+    class Teos
     {
+        public int _Id = 0;
         public string _Nimi = "";
-        public string _Sijainti = "";
+        public string _Kuvaus = "";
 
-        public KirjastoTieto(string nimi, string sijainti)
+        public Teos(int id, string nimi, string kuvaus)
         {
+            _Id = id;
             _Nimi = nimi;
-            _Sijainti = sijainti;
+            _Kuvaus = kuvaus;
         }
-
     }
 }
