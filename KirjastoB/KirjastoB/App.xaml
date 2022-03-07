@@ -1,7 +1,7 @@
-﻿<Application x:Class="Kirjasto_app.App"
+﻿<Application x:Class="KirjastoB.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Kirjasto_app"
+             xmlns:local="clr-namespace:KirjastoB"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

@@ -1,0 +1,31 @@
+﻿<Window x:Class="KirjastoB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KirjastoB"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Background="#FFDEDEDE">
+        <StackPanel Orientation="Horizontal" Background="#FF4896FF" Height="50" VerticalAlignment="Stretch">
+            <TextBox Width="200" VerticalAlignment="Center" Text="Nimi"/>
+            <TextBox Width="200" VerticalAlignment="Center" Text="Tekijä"/>
+            <ComboBox Width="200"  VerticalAlignment="Center"/>
+            <Button Content="Hae" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Background="#FF95D6FF">
+            <ListView Height="350" x:Name="hakuTuloksetLista">
+                <ListView.View>
+                    <GridView>
+                        <!-- Listanäkymässä näytetään olioiden tiedot käyttäen Binding mekanismia, 
+                        vaatii että luokasta löytyy Propertyt samoilla nimillä. -->
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                        <GridViewColumn Header="Nimi" Width="200" DisplayMemberBinding="{Binding Nimi}"></GridViewColumn>
+                        <GridViewColumn Header="Kuvaus" Width="200" DisplayMemberBinding="{Binding Kuvaus}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </StackPanel>
+
+</Window>
