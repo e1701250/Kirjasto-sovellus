@@ -12,6 +12,23 @@ namespace KirjastoA
         public string _Nimi = "";
         public string _Kuvaus = "";
 
+        //Property, joka palauttaa Id-numeron muuttujasta _Id
+        //Käytetään listview näkymän bindingissä
+        public int IdNumero
+        {
+            get { return _Id; }
+        }
+
+        public string TeoksenNimi
+        {
+            get { return _Nimi; }
+        }
+
+        public string TeoksenKuvaus
+        {
+            get { return _Kuvaus; }
+        }
+
         public Teos(int id, string nimi, string kuvaus)
         {
             _Id = id;

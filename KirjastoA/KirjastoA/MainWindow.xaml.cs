@@ -31,6 +31,13 @@ namespace KirjastoA
             valittuKirjasto.LuoMockDataa(30);
 
             InitializeComponent();
+
+            //Kerrotaan ListView-komponentille, että sen pitää näyttää
+            //valittuKirjasto.Teokset listaa sen sisällä
+            //ListView.ItemSource kertoo itemeiden "lähteen"
+            //Jokainen item näytetään rivinä ListView:n sisällä
+
+            dataGrid.ItemsSource = valittuKirjasto.Teokset;
         }
 
       
