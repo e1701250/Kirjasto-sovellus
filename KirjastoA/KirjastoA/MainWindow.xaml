@@ -1,0 +1,35 @@
+﻿<Window x:Class="KirjastoA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KirjastoA"
+        mc:Ignorable="d"
+        Title="Mangen Kirjastosovellus" Height="450" Width="800">
+    <Grid>
+        <TabControl x:Name="tabControl">
+            <TabItem Header="Etusivu">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Haku" Height="20" VerticalAlignment="Bottom">
+                <Grid Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="9*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Background="#FF60B3FF">
+                        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <ComboBox x:Name="tyyppiBox" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <ComboBox x:Name="lajiBox" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <Button x:Name="haeButton" Width="100" VerticalAlignment="Center" Content="Hae" Margin="10,0,0,0"></Button>
+                        <Button x:Name="tyhjääButton" Width="100" VerticalAlignment="Center" Content="Tyhjää" Margin="10,0,0,0"></Button>
+                    </StackPanel>
+                    <DataGrid x:Name="dataGrid" Grid.Row="1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
