@@ -83,5 +83,17 @@ namespace KirjastoA
             //Palautetaan alkuperäinen lista teoksista
             dataGrid.ItemsSource = valittuKirjasto.Teokset;
         }
+
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if(dataGrid.SelectedItem != null)
+            {
+                // 2. Jos on, avataan uusi välilehti
+                //Pitää tehdä tyyppimuunnos (type cast), koska SelectedItem on yleinen ominaisuus
+                //joka palauttaa "object"-tyyppisen olion
+                Teos klikattuTeos = (Teos)dataGrid.SelectedItem;
+
+            }
+        }
     }
 }
