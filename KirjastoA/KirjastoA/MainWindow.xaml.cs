@@ -40,6 +40,48 @@ namespace KirjastoA
             dataGrid.ItemsSource = valittuKirjasto.Teokset;
         }
 
-      
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string hakuTeksti = textBox.Text;
+            bool onTyhjä = string.IsNullOrWhiteSpace(hakuTeksti);
+
+            if(onTyhjä == false)
+            {
+                //Tekstikenttään on syötetty jotain
+                //Painikkeet toimivat
+                haeButton.IsEnabled = true;
+                tyhjääButton.IsEnabled = true;
+            }
+            else
+            {
+                //Muuten painikkeet eivät toimi
+                haeButton.IsEnabled = false;
+                tyhjääButton.IsEnabled = false;
+            }
+        }
+
+        private void haeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // 1. hakutermi talteen
+            string hakutermi = textBox.Text.Trim();
+
+            // 2. etsitään hakua vataavat teokset
+            List<Teos> osumat = valittuKirjasto.Teokset.FindAll(
+                x =>    x.TeoksenNimi.Contains(hakutermi) == true || 
+                        x.TeoksenKuvaus.Contains(hakutermi) == true
+                );
+
+            // 3. teoslistan päivitys
+            dataGrid.ItemsSource = osumat;
+        }
+
+        private void tyhjääButton_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text = "";
+            //TODO tyhjää myös muut suodattimet
+
+            //Palautetaan alkuperäinen lista teoksista
+            dataGrid.ItemsSource = valittuKirjasto.Teokset;
+        }
     }
 }
