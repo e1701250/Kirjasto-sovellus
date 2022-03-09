@@ -93,6 +93,41 @@ namespace KirjastoA
                 //joka palauttaa "object"-tyyppisen olion
                 Teos klikattuTeos = (Teos)dataGrid.SelectedItem;
 
+                //Tarkistetaan onko teokselle olemassa välilehteä
+                TabItem välilehtoJoOlemassa = null;
+                for(int i = 0; i < tabControl.Items.Count; i++)
+                {
+                    //käydään jokainen tabitem läpi
+                    //+tyyppimuutos
+                    TabItem t = (TabItem)tabControl.Items.GetItemAt(i);
+                    string tHeader = (string)t.Header;
+                    if(tHeader.Contains(klikattuTeos.TeoksenNimi) == true)
+                    {
+                        //Välilehti löytyi teokselle
+                        välilehtoJoOlemassa = t;
+                        break; //Keskeytetään silmukan suoritus
+                    }
+                }
+
+                if(välilehtoJoOlemassa != null)
+                {
+                    //siirretään käyttäjä avatulle välilehdelle
+                    tabControl.SelectedItem = välilehtoJoOlemassa;
+                }
+                else
+                {
+                    //Luodaan uusi välilehti, olio TabItem luokasta
+                    TabItem välilehti = new TabItem(); 
+                    välilehti.Header = klikattuTeos.TeoksenNimi;
+
+                    //Lisätään luotu välilehti välilehti-kontrollin Items-listaan
+                    tabControl.Items.Add(välilehti);
+
+                    //siirretään käyttäjä avatulle välilehdelle
+                    tabControl.SelectedItem = välilehtoJoOlemassa;
+                }
+
+
             }
         }
     }
