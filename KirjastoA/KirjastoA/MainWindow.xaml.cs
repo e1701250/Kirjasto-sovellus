@@ -42,7 +42,7 @@ namespace KirjastoA
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string hakuTeksti = textBox.Text;
+            string hakuTeksti = HakuTextBox.Text;
             bool onTyhjä = string.IsNullOrWhiteSpace(hakuTeksti);
 
             if(onTyhjä == false)
@@ -63,7 +63,7 @@ namespace KirjastoA
         private void haeButton_Click(object sender, RoutedEventArgs e)
         {
             // 1. hakutermi talteen
-            string hakutermi = textBox.Text.Trim();
+            string hakutermi = HakuTextBox.Text.Trim();
 
             // 2. etsitään hakua vataavat teokset
             List<Teos> osumat = valittuKirjasto.Teokset.FindAll(
@@ -74,10 +74,19 @@ namespace KirjastoA
             // 3. teoslistan päivitys
             dataGrid.ItemsSource = osumat;
         }
+        private void tyyppiBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void lajiBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
 
         private void tyhjääButton_Click(object sender, RoutedEventArgs e)
         {
-            textBox.Text = "";
+            HakuTextBox.Text = "";
             //TODO tyhjää myös muut suodattimet
 
             //Palautetaan alkuperäinen lista teoksista
@@ -119,16 +128,29 @@ namespace KirjastoA
                     //Luodaan uusi välilehti, olio TabItem luokasta
                     TabItem välilehti = new TabItem(); 
                     välilehti.Header = klikattuTeos.TeoksenNimi;
+                    välilehti.Content = klikattuTeos.TeoksenEsittelyTeksti;
+                    //TODO Enemmän tietoa kirjasta
 
                     //Lisätään luotu välilehti välilehti-kontrollin Items-listaan
                     tabControl.Items.Add(välilehti);
 
                     //siirretään käyttäjä avatulle välilehdelle
-                    tabControl.SelectedItem = välilehtoJoOlemassa;
+                    tabControl.SelectedItem = välilehti;
                 }
 
 
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string käyttäjä = KäyttäjäTextBox.Text.Trim();
+            string salasana = SalasanaTextBox.Text.Trim();
+        }
+
+        private void RekisteröidyButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

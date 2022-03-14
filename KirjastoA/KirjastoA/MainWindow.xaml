@@ -11,9 +11,15 @@
             <TabItem Header="Etusivu">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="81*"/>
-                        <ColumnDefinition Width="713*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <TextBox x:Name="KäyttäjäTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="331,232,0,0" TextWrapping="Wrap" Text="Käyttäjätunnus" VerticalAlignment="Top" Width="152"/>
+                    <TextBox x:Name="SalasanaTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="331,259,0,0" TextWrapping="Wrap" Text="Salasana" VerticalAlignment="Top" Width="152"/>
+                    <Button x:Name="KirjauduButton" Grid.Column="2" Content="Kirjaudu" HorizontalAlignment="Left" Margin="354,297,0,0" VerticalAlignment="Top" Width="106" Click="Button_Click" Height="19"/>
+                    <Button x:Name="RekisteröidyButton" Grid.Column="2" Content="Rekisteröidy" HorizontalAlignment="Left" Margin="354,321,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="RekisteröidyButton_Click"/>
+                    <Label x:Name="Logo" Grid.Column="2" Content="Kirjasto&#xD;&#xA;" HorizontalAlignment="Left" Margin="313,136,0,0" VerticalAlignment="Top" Height="72" Width="187" FontFamily="Arial" FontSize="48" RenderTransformOrigin="0.477,-0.038" FontWeight="Bold"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Haku" Height="20" VerticalAlignment="Bottom">
@@ -26,9 +32,9 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Horizontal" Background="#FF60B3FF">
-                        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" Width="120" VerticalAlignment="Center" Margin="10,0,0,0" TextChanged="textBox_TextChanged"/>
-                        <ComboBox x:Name="tyyppiBox" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <ComboBox x:Name="lajiBox" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <TextBox x:Name="HakuTextBox" TextWrapping="Wrap" Text="" Width="120" VerticalAlignment="Center" Margin="10,0,0,0" TextChanged="textBox_TextChanged"/>
+                        <ComboBox x:Name="tyyppiBox" Width="120" VerticalAlignment="Center" Margin="10,0,0,0" SelectionChanged="tyyppiBox_SelectionChanged"/>
+                        <ComboBox x:Name="lajiBox" Width="120" VerticalAlignment="Center" Margin="10,0,0,0" SelectionChanged="lajiBox_SelectionChanged"/>
                         <Button x:Name="haeButton" IsEnabled="False" Width="100" VerticalAlignment="Center" Content="Hae" Margin="10,0,0,0" Click="haeButton_Click"></Button>
                         <Button x:Name="tyhjääButton" IsEnabled="False" Width="100" VerticalAlignment="Center" Content="Tyhjää" Margin="10,0,0,0" Click="tyhjääButton_Click"></Button>
                     </StackPanel>

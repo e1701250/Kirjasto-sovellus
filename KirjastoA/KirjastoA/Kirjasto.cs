@@ -31,7 +31,11 @@ namespace KirjastoA
             {
                 Teos t = new Teos(i,
                     "Teos " + i,
-                    "Hiihuu " + i);
+                    "Hiihuu " + i,
+                    "Kauhu",
+                    30 + i,
+                    "Kauniissa metsässä asui paholaisia osa: " + i + " Eikä kukaan tiennyt niistä mitään kunnes eräänä päivänä niistä tuli koko kylän ongelma."
+                    );
 
                 Teokset.Add(t); //Lisätään teos listaan
 
