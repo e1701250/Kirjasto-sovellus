@@ -131,6 +131,31 @@ namespace KirjastoA
                     välilehti.Content = klikattuTeos.TeoksenEsittelyTeksti;
                     //TODO Enemmän tietoa kirjasta
 
+                    /*Luodaan olio meidän custom tab itemista
+                    CustomTabItem t = new CustomTabItem();
+                    // Luodaan olio tab item sisällöstä
+                    CustomTabContent tcont = new CustomTabContent();
+
+                    // Laitetaan tab itemin otsikkoon teksti
+                    t.Header = "Test123";
+
+                    // Tämä on olio siitä testidatasta, jota halutaan näyttää (esim. Teos/Asiakas)
+                    TestiLuokka tl = new TestiLuokka();
+                    // Asetetaan testiolioon joku näytettävä data
+                    tl.JokuTeksti = "Testataan tällä";
+
+                    // Sijoitetaan TabItem sisällön DataContext-muuttujaan yllä luotu olio
+                    // DataContext:iin sijoitettu olio on se, johon DataBinding-linkitykset tehdään
+                    tcont.DataContext = tl;
+
+                    // Asetetaan TabItem:n sisällöksi meidän CustomTabContent olio
+                    t.Content = tcont;
+
+                    // Lisätään lopuksi meidän custom tab item näkymään
+                    tabcontrol.Items.Add(t);
+                    tabcontrol.SelectedItem = t;
+                    */
+
                     //Lisätään luotu välilehti välilehti-kontrollin Items-listaan
                     tabControl.Items.Add(välilehti);
 
@@ -150,7 +175,29 @@ namespace KirjastoA
 
         private void RekisteröidyButton_Click(object sender, RoutedEventArgs e)
         {
+            //Luodaan olio meidän custom tab itemista
+                    CustomTabItem t = new CustomTabItem();
+            // Luodaan olio tab item sisällöstä
+            CustomTabContent tcont = new CustomTabContent();
 
+            // Laitetaan tab itemin otsikkoon teksti
+            t.Header = "Test123";
+
+            // Tämä on olio siitä testidatasta, jota halutaan näyttää (esim. Teos/Asiakas)
+            TestiLuokka tl = new TestiLuokka();
+            // Asetetaan testiolioon joku näytettävä data
+            tl.JokuTeksti = "Testataan tällä";
+
+            // Sijoitetaan TabItem sisällön DataContext-muuttujaan yllä luotu olio
+            // DataContext:iin sijoitettu olio on se, johon DataBinding-linkitykset tehdään
+            tcont.DataContext = tl;
+
+            // Asetetaan TabItem:n sisällöksi meidän CustomTabContent olio
+            t.Content = tcont;
+
+            // Lisätään lopuksi meidän custom tab item näkymään
+            tabControl.Items.Add(t);
+            tabControl.SelectedItem = t;
         }
     }
 }
