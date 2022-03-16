@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:KirjastoA"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
-      
+
     <Grid Background="#FFAFC7F1">
         <!-- Asetetaan Label:n tekstiä käyttäen DataBindingia. Linkitetään se "JokuTeksti" nimiseen propertyyn,
              joka tulee löytyä siitä oliosta joka asetetaan tämän CustomTabContent-olion DataContext:ksi. -->
