@@ -124,25 +124,23 @@ namespace KirjastoA
                     tabControl.SelectedItem = välilehtoJoOlemassa;
                 }
                 else
-                {
-                    //Luodaan uusi välilehti, olio TabItem luokasta
-                    TabItem välilehti = new TabItem(); 
-                    välilehti.Header = klikattuTeos.TeoksenNimi;
-                    välilehti.Content = klikattuTeos.TeoksenEsittelyTeksti;
-                    //TODO Enemmän tietoa kirjasta
-
-                    /*Luodaan olio meidän custom tab itemista
+                {              
+                    //Luodaan olio meidän custom tab itemista
                     CustomTabItem t = new CustomTabItem();
                     // Luodaan olio tab item sisällöstä
-                    CustomTabContent tcont = new CustomTabContent();
+                    CustomTabContentTeos tcont = new CustomTabContentTeos();
 
                     // Laitetaan tab itemin otsikkoon teksti
-                    t.Header = "Test123";
+                    t.Header = klikattuTeos.TeoksenNimi;
 
                     // Tämä on olio siitä testidatasta, jota halutaan näyttää (esim. Teos/Asiakas)
-                    TestiLuokka tl = new TestiLuokka();
+                    TeoksenTiedot tl = new TeoksenTiedot();
                     // Asetetaan testiolioon joku näytettävä data
-                    tl.JokuTeksti = "Testataan tällä";
+                    tl.TNimi = "Nimi: " + klikattuTeos.TeoksenNimi;
+                    tl.TSivuMäärä = "Sivumäärä: " + klikattuTeos.TeoksenSivuMäärä.ToString();
+                    tl.TLaji = "Laji: " + klikattuTeos.TeoksenLaji;
+                    tl.TKuvaus = "Kuvaus: " + klikattuTeos.TeoksenKuvaus;
+                    tl.TesittelyTeksti = "Esittely teksti: " + klikattuTeos.TeoksenEsittelyTeksti;
 
                     // Sijoitetaan TabItem sisällön DataContext-muuttujaan yllä luotu olio
                     // DataContext:iin sijoitettu olio on se, johon DataBinding-linkitykset tehdään
@@ -152,15 +150,8 @@ namespace KirjastoA
                     t.Content = tcont;
 
                     // Lisätään lopuksi meidän custom tab item näkymään
-                    tabcontrol.Items.Add(t);
-                    tabcontrol.SelectedItem = t;
-                    */
-
-                    //Lisätään luotu välilehti välilehti-kontrollin Items-listaan
-                    tabControl.Items.Add(välilehti);
-
-                    //siirretään käyttäjä avatulle välilehdelle
-                    tabControl.SelectedItem = välilehti;
+                    tabControl.Items.Add(t);
+                    tabControl.SelectedItem = t;
                 }
 
 
@@ -175,29 +166,7 @@ namespace KirjastoA
 
         private void RekisteröidyButton_Click(object sender, RoutedEventArgs e)
         {
-            //Luodaan olio meidän custom tab itemista
-                    CustomTabItem t = new CustomTabItem();
-            // Luodaan olio tab item sisällöstä
-            CustomTabContent tcont = new CustomTabContent();
 
-            // Laitetaan tab itemin otsikkoon teksti
-            t.Header = "Test123";
-
-            // Tämä on olio siitä testidatasta, jota halutaan näyttää (esim. Teos/Asiakas)
-            TestiLuokka tl = new TestiLuokka();
-            // Asetetaan testiolioon joku näytettävä data
-            tl.JokuTeksti = "Testataan tällä";
-
-            // Sijoitetaan TabItem sisällön DataContext-muuttujaan yllä luotu olio
-            // DataContext:iin sijoitettu olio on se, johon DataBinding-linkitykset tehdään
-            tcont.DataContext = tl;
-
-            // Asetetaan TabItem:n sisällöksi meidän CustomTabContent olio
-            t.Content = tcont;
-
-            // Lisätään lopuksi meidän custom tab item näkymään
-            tabControl.Items.Add(t);
-            tabControl.SelectedItem = t;
         }
     }
 }

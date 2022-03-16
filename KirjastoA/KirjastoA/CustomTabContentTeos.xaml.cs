@@ -18,9 +18,9 @@ namespace KirjastoA
     /// <summary>
     /// CustomTabContent on meidän itse toteuttama ns. UserControl, eli käyttöliittymäelementti.
     /// </summary>
-    public partial class CustomTabContent : UserControl
+    public partial class CustomTabContentTeos : UserControl
     {
-        public CustomTabContent()
+        public CustomTabContentTeos()
         {
             InitializeComponent();
         }
