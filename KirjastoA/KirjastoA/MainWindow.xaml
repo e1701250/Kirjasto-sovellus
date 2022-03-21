@@ -15,11 +15,9 @@
                         <ColumnDefinition Width="0*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:Name="KäyttäjäTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="331,232,0,0" TextWrapping="Wrap" Text="Käyttäjätunnus" VerticalAlignment="Top" Width="152"/>
-                    <TextBox x:Name="SalasanaTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="331,259,0,0" TextWrapping="Wrap" Text="Salasana" VerticalAlignment="Top" Width="152"/>
-                    <Button x:Name="KirjauduButton" Grid.Column="2" Content="Kirjaudu" HorizontalAlignment="Left" Margin="354,297,0,0" VerticalAlignment="Top" Width="106" Click="Button_Click" Height="19"/>
-                    <Button x:Name="RekisteröidyButton" Grid.Column="2" Content="Rekisteröidy" HorizontalAlignment="Left" Margin="354,321,0,0" VerticalAlignment="Top" Width="106" Height="19" Click="RekisteröidyButton_Click"/>
-                    <Label x:Name="Logo" Grid.Column="2" Content="Kirjasto&#xD;&#xA;" HorizontalAlignment="Left" Margin="313,136,0,0" VerticalAlignment="Top" Height="72" Width="187" FontFamily="Arial" FontSize="48" RenderTransformOrigin="0.477,-0.038" FontWeight="Bold"/>
+                    <Button x:Name="avaaKirjButton" Content="Kirjaudu" HorizontalAlignment="Center" Margin="0,223,0,0" VerticalAlignment="Top" Width="110" Click="avaaKirjButtonClick" Grid.Column="2"/>
+                    <Button x:Name="kirjauduUlosButton" Content="Kirjaudu ulos" Visibility="Hidden" HorizontalAlignment="Center" Margin="0,228,0,0" VerticalAlignment="Top" Width="110" Click="kirjauduUlosButton_Click" Grid.Column="2"/>
+                    <Label x:Name="Logo" Grid.Column="2" Content="Kirjasto&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Height="72" Width="186" FontFamily="Arial" FontSize="48" RenderTransformOrigin="0.477,-0.038" FontWeight="Bold"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Haku" Height="20" VerticalAlignment="Bottom">
