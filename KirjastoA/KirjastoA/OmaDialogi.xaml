@@ -9,7 +9,7 @@
     <Grid>
         <Button x:Name="kirjauduButton" Content="Kirjaudu" HorizontalAlignment="Left" Margin="413,283,0,0" VerticalAlignment="Top" Width="75" Click="kirjauduClick" IsDefault="True" IsEnabled="False"/>
         <Button x:Name="peruutaButton" Content="Peruuta" HorizontalAlignment="Left" Margin="310,283,0,0" VerticalAlignment="Top" Width="75" Click="peruutaClick"/>
-        <TextBox x:Name="usernameBox" HorizontalAlignment="Center" Height="23" Margin="0,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" TextChanged="usernameBox_TextChanged" Opacity="0.5"/>
+        <TextBox x:Name="usernameBox" HorizontalAlignment="Center" Height="23" Margin="0,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" TextChanged="usernameBox_TextChanged" Opacity="0.5" AutomationProperties.HelpText="Sähköposti"/>
         <PasswordBox x:Name="salasanaBox" HorizontalAlignment="Center" Height="23" Margin="0,217,0,0" VerticalAlignment="Top" Width="180" PasswordChanged="salasanaBox_TextChanged"/>
         <Label x:Name="Logo" Content="Kirjasto&#xA;" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Height="72" Width="188" FontFamily="Arial" FontSize="48" RenderTransformOrigin="0.477,-0.038" FontWeight="Bold"/>
 

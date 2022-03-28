@@ -22,6 +22,7 @@ namespace KirjastoA
         public OmaDialogi()
         {
             InitializeComponent();
+            usernameBox.Focus();
         }
         private void salasanaBox_TextChanged(object sender, RoutedEventArgs e)
         {
