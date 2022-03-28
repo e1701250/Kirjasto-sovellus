@@ -16,7 +16,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Button x:Name="avaaKirjButton" Content="Kirjaudu" HorizontalAlignment="Center" Margin="0,223,0,0" VerticalAlignment="Top" Width="110" Click="avaaKirjButtonClick" Grid.Column="2"/>
-                    <Button x:Name="kirjauduUlosButton" Content="Kirjaudu ulos" Visibility="Hidden" HorizontalAlignment="Center" Margin="0,228,0,0" VerticalAlignment="Top" Width="110" Click="kirjauduUlosButton_Click" Grid.Column="2"/>
+                    <Button x:Name="kirjauduUlosButton" Content="Kirjaudu ulos" Visibility="Hidden" HorizontalAlignment="Left" Margin="468,223,0,0" VerticalAlignment="Top" Width="110" Click="kirjauduUlosButton_Click" Grid.Column="2"/>
                     <Label x:Name="Logo" Grid.Column="2" Content="Kirjasto&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Height="72" Width="186" FontFamily="Arial" FontSize="48" RenderTransformOrigin="0.477,-0.038" FontWeight="Bold"/>
                 </Grid>
             </TabItem>

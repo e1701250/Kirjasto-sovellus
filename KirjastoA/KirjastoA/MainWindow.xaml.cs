@@ -83,7 +83,7 @@ namespace KirjastoA
                     myConn.Open();
 
                     // Luodaan SQL-komento, jolla luetaan kaikki tieto Users-nimisestä taulukosta
-                    OleDbCommand myQuery = new OleDbCommand("SELECT UserEmail, UserPassword WHERE Users = " + (useremail) , myConn);
+                    OleDbCommand myQuery = new OleDbCommand("SELECT * FROM Users WHERE UserEmail = '" + (useremail) + "';", myConn);
 
                     // Komento suoritetaan tällä koodirivillä
                     OleDbDataReader myReader = myQuery.ExecuteReader();
@@ -109,6 +109,21 @@ namespace KirjastoA
                             // Muodostan merkkijonon luetusta datasta ja lisään list-boxiin
                             //string luettuTieto = userId + ": " + userName + ", " + userEmail;
                             //luetutTiedot.Items.Add(luettuTieto);
+                        if (useremail.CompareTo(userEmail) == 0 &&
+                            pw.CompareTo(userPassword) == 0)
+                        {
+                                MessageBox.Show("Kirjautunut käyttäjä: " + useremail);
+
+                                // Tallennetaan kirjautuneen käyttäjän username muuttujaan, tilatietona
+                                kirjautunutUsername = useremail;
+
+                                // Päivitetään käyttöliittymä, koska käyttäjä on kirjautunut
+                                PäivitäKäyttöliittymä();
+                        }
+                        else
+                        {
+                                MessageBox.Show("Väärä tunnus tai salasana");
+                        }
                         }
                     }
 
@@ -143,21 +158,7 @@ namespace KirjastoA
 
                 // Demotarkistus, kovakoodatut arvot
                 // Nämä haettaisiin tietokannasta tmv
-                if (useremail.CompareTo() == 0 &&
-                    pw.CompareTo("qwerty") == 0)
-                {
-                    MessageBox.Show("Kirjautunut käyttäjä: " + useremail);
 
-                    // Tallennetaan kirjautuneen käyttäjän username muuttujaan, tilatietona
-                    kirjautunutUsername = useremail;
-
-                    // Päivitetään käyttöliittymä, koska käyttäjä on kirjautunut
-                    PäivitäKäyttöliittymä();
-                }
-                else
-                {
-                    MessageBox.Show("Väärä tunnus tai salasana");
-                }
             }
         }
 
