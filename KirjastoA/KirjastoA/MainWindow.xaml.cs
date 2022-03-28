@@ -109,9 +109,9 @@ namespace KirjastoA
                             // Muodostan merkkijonon luetusta datasta ja lisään list-boxiin
                             //string luettuTieto = userId + ": " + userName + ", " + userEmail;
                             //luetutTiedot.Items.Add(luettuTieto);
-                        if (useremail.CompareTo(userEmail) == 0 &&
+                            if (useremail.CompareTo(userEmail) == 0 &&
                             pw.CompareTo(userPassword) == 0)
-                        {
+                            {
                                 MessageBox.Show("Kirjautunut käyttäjä: " + useremail);
 
                                 // Tallennetaan kirjautuneen käyttäjän username muuttujaan, tilatietona
@@ -119,11 +119,11 @@ namespace KirjastoA
 
                                 // Päivitetään käyttöliittymä, koska käyttäjä on kirjautunut
                                 PäivitäKäyttöliittymä();
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
                                 MessageBox.Show("Väärä tunnus tai salasana");
-                        }
+                            }
                         }
                     }
 
