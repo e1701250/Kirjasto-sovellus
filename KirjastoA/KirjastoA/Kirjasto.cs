@@ -18,28 +18,5 @@ namespace KirjastoA
             _Nimi = nimi;
             _Sijainti = sijainti;
         }
-
-        /// <summary>
-        /// Luodaan x määrä teoksia kirjastoon
-        /// </summary>
-        /// <param name="lkm">montako luodaan</param>
-        public void LuoMockDataa(int lkm)
-        {
-            Teokset.Clear(); //Tyhjentää listan
-
-            for(int i = 0; i < lkm; i++)
-            {
-                Teos t = new Teos(i,
-                    "Teos " + i,
-                    "Hiihuu " + i,
-                    "Kauhu",
-                    30 + i,
-                    "Kauniissa metsässä asui paholaisia osa: " + i + " Eikä kukaan tiennyt niistä mitään kunnes eräänä päivänä niistä tuli koko kylän ongelma."
-                    );
-
-                Teokset.Add(t); //Lisätään teos listaan
-
-            }
-        }
     }
 }

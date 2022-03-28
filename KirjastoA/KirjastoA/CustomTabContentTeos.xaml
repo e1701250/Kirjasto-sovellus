@@ -15,7 +15,7 @@
             <Label Content="{Binding TNimi}"></Label>
             <Label Content="{Binding TSivuMäärä}"></Label>
             <Label Content="{Binding TLaji}"></Label>
-            <Label Content="{Binding TKuvaus}"></Label>
+            <Label Content="{Binding TTekijä}"></Label>
             <Label Content="{Binding TesittelyTeksti}"></Label>
         </StackPanel>
         

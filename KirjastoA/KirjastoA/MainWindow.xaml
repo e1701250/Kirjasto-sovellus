@@ -20,7 +20,7 @@
                     <Label x:Name="Logo" Grid.Column="2" Content="Kirjasto&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Height="72" Width="186" FontFamily="Arial" FontSize="48" RenderTransformOrigin="0.477,-0.038" FontWeight="Bold"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Haku" Height="20" VerticalAlignment="Bottom">
+            <TabItem x:Name="hakuVälilehti" Header="Haku" Visibility="Hidden" Height="20" VerticalAlignment="Bottom">
                 <Grid Background="White">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -41,7 +41,7 @@
                             <GridView>
                                 <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding IdNumero}"></GridViewColumn>
                                 <GridViewColumn Header="Nimi" Width="150" DisplayMemberBinding="{Binding TeoksenNimi}"></GridViewColumn>
-                                <GridViewColumn Header="Kuvaus" Width="150" DisplayMemberBinding="{Binding TeoksenKuvaus}"></GridViewColumn>
+                                <GridViewColumn Header="Tekijä" Width="150" DisplayMemberBinding="{Binding TeoksenTekijä}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

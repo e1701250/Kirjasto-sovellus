@@ -14,7 +14,7 @@ namespace KirjastoA
         public string TNimi { get; set; } = "-";
         public string TSivuMäärä { get; set; } = "-";
         public string TLaji { get; set; } = "-";
-        public string TKuvaus { get; set; } = "-";
+        public string TTekijä { get; set; } = "-";
         public string TesittelyTeksti { get; set; } = "-";
 
 

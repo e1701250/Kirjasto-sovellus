@@ -10,7 +10,7 @@ namespace KirjastoA
     {
         public int _Id = 0;
         public string _Nimi = "";
-        public string _Kuvaus = "";
+        public string _Tekijä = "";
         public string _Laji = "";
         public int _sivuMäärä = 0;
         public string _esittelyTeksti = "";
@@ -29,9 +29,9 @@ namespace KirjastoA
             get { return _Nimi; }
         }
 
-        public string TeoksenKuvaus
+        public string TeoksenTekijä
         {
-            get { return _Kuvaus; }
+            get { return _Tekijä; }
         }
 
         public string TeoksenLaji
@@ -50,11 +50,11 @@ namespace KirjastoA
 
         }
 
-        public Teos(int id, string nimi, string kuvaus, string laji, int sivuMäärä, string esittelyTeksti)
+        public Teos(int id, string nimi, string tekijä, string laji, int sivuMäärä, string esittelyTeksti)
         {
             _Id = id;
             _Nimi = nimi;
-            _Kuvaus = kuvaus;
+            _Tekijä = tekijä;
             _Laji = laji;
             _sivuMäärä = sivuMäärä;
             _esittelyTeksti = esittelyTeksti;

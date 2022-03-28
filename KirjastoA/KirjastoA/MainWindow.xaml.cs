@@ -33,11 +33,51 @@ namespace KirjastoA
                 "Pikitehtaankatu 19, 65200 Vaasa"
                 );
 
-            valittuKirjasto.LuoMockDataa(30);
-
             InitializeComponent();
 
-            
+            string tietokantaPolku = "U:/Ohjelmoinnin perusteet 2/Käyttäjät.accdb";
+
+            // Tällä komennolla valmistellaan yhteyden luomista tietokantaan
+            // HUOM! Jos Visual Studio valittaa, ettei löydä OleDbConnection, klikkaa
+            // luokan nimeä hiiren oikealla, valitse "Quick actions..." ja valitse
+            // "using System.Data.OleDb".
+
+            OleDbConnection myConnTeokset = new OleDbConnection(
+            "Provider=Microsoft.ACE.OLEDB.12.0;" +
+            @"Data Source=" + tietokantaPolku + ";");
+            // Avataan yhteys
+            myConnTeokset.Open();
+
+            // Luodaan SQL-komento, jolla luetaan kaikki tieto Users-nimisestä taulukosta
+            OleDbCommand myQueryTeokset = new OleDbCommand("SELECT * FROM Teokset;", myConnTeokset);
+
+            // Komento suoritetaan tällä koodirivillä
+            OleDbDataReader myReaderTeokset = myQueryTeokset.ExecuteReader();
+
+            // Tarkistetaan, jos saimme tietokannasta rivejä
+            if (myReaderTeokset.HasRows)
+            {
+                // Suoritetaan while-silmukka, niin kauan kun on enemmän prosessoitavaa dataa
+                // .Read() funktio palauttaa true, jos on lisää rivejä jotka pitää käsitellä
+                while (myReaderTeokset.Read() == true)
+                {
+                    // Luetaan tiedot paluudatasta
+                    // Pitää lukea oikea tietotyyppi (esim int/string)
+                    // Kentät luetaan siinä järjestyksessä, kuin ne ovat tietokannan taulussa
+
+                    int teoksenID = myReaderTeokset.GetInt32(0);
+                    string teoksenNimi = myReaderTeokset.GetString(1);
+                    string teoksenTekijä = myReaderTeokset.GetString(2);
+                    string teoksenLaji = myReaderTeokset.GetString(3);
+                    int teoksenSivuMäärä = myReaderTeokset.GetInt32(4);
+                    string teoksenEsittelyTeksti = myReaderTeokset.GetString(5);
+
+                    Teos t = new Teos(teoksenID, teoksenNimi, teoksenTekijä, teoksenLaji, teoksenSivuMäärä, teoksenEsittelyTeksti);
+
+                    valittuKirjasto.Teokset.Add(t); //Lisätään teos listaan
+                }
+            }
+
         }
 
         private void avaaKirjButtonClick(object sender, RoutedEventArgs e)
@@ -170,14 +210,17 @@ namespace KirjastoA
 
             if (kirjautunut == true)
             {
-                // Jos on, näytä "Kirjaudu ulos" painike ja disabloi "Kirjaudu" painike
+                // Jos on, näytä "Kirjaudu ulos" painike ja disabloi "Kirjaudu" painike ja näytä hakusivu
                 kirjauduUlosButton.Visibility = Visibility.Visible;
+                hakuVälilehti.Visibility = Visibility.Visible;
                 avaaKirjButton.IsEnabled = false;
+                
             }
             else
             {
-                // Jos ei ole kirjautuneena, piilota "Kirjaudu ulos" painike
+                // Jos ei ole kirjautuneena, piilota "Kirjaudu ulos" painike ja piilota hakusivu
                 kirjauduUlosButton.Visibility = Visibility.Hidden;
+                hakuVälilehti.Visibility = Visibility.Hidden;
                 // Enabloi "Kirjaudu" painike
                 avaaKirjButton.IsEnabled = true;
             }
@@ -219,7 +262,7 @@ namespace KirjastoA
             // 2. etsitään hakua vataavat teokset
             List<Teos> osumat = valittuKirjasto.Teokset.FindAll(
                 x =>    x.TeoksenNimi.Contains(hakutermi) == true || 
-                        x.TeoksenKuvaus.Contains(hakutermi) == true
+                        x.TeoksenTekijä.Contains(hakutermi) == true
                 );
 
             // 3. teoslistan päivitys
@@ -290,7 +333,7 @@ namespace KirjastoA
                     tl.TNimi = "Nimi: " + klikattuTeos.TeoksenNimi;
                     tl.TSivuMäärä = "Sivumäärä: " + klikattuTeos.TeoksenSivuMäärä.ToString();
                     tl.TLaji = "Laji: " + klikattuTeos.TeoksenLaji;
-                    tl.TKuvaus = "Kuvaus: " + klikattuTeos.TeoksenKuvaus;
+                    tl.TTekijä = "Tekijä: " + klikattuTeos.TeoksenTekijä;
                     tl.TesittelyTeksti = "Esittely teksti: " + klikattuTeos.TeoksenEsittelyTeksti;
 
                     // Sijoitetaan TabItem sisällön DataContext-muuttujaan yllä luotu olio
