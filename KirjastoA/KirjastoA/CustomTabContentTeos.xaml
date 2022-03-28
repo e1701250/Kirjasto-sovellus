@@ -16,7 +16,8 @@
             <Label Content="{Binding TSivuMäärä}"></Label>
             <Label Content="{Binding TLaji}"></Label>
             <Label Content="{Binding TTekijä}"></Label>
-            <Label Content="{Binding TesittelyTeksti}"></Label>
+            <Label>
+                <TextBlock Text="{Binding TesittelyTeksti}" TextWrapping="WrapWithOverflow"/></Label>
         </StackPanel>
         
 
